@@ -1,0 +1,51 @@
+.full-height {
+    height: 100vh;
+    background-color: white;
+    max-width: 70vw;
+    flex-grow: 0;
+}
+
+#cupcake-img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+#cupcake-list {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   flex-grow: 1;
+}
+
+#cupcake-container {
+    max-width: 350px;
+    flex-grow: 1;
+}
+
+#page-container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    justify-content: space-between;
+}
+
+.btn-secondary.clicked {
+    background-color: green; 
+    color: white; 
+    border-color: green; 
+}
+
+.del-btn{
+    display: flex;
+    float: inline-end;
+}
+
+body {
+    height: 100vh;
+    background-color: rgb(255, 204, 153);
+}
+
+form {
+    margin-bottom: 5%;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Cupcakes{% endblock %}</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="container-lg h-100" id="page-container">
+        {% block content %}
+        <h1 class="text-center mt-2">Our Cupcakes</h1>
+        <div class="container mt-5" id="cupcake-list">
+          
+        </div>
+
+        <div class="container-md" id="form-container">
+          <h2>Add a Cupcake!</h2>
+
+          <form id="cupcake-form" method="POST" action="/api/cupcakes">
+            {{ form.hidden_tag() }}
+
+            <div class="form-group mb-3">
+              {{ form.flavor.label(class="form-label") }}
+              {{ form.flavor(class="form-control") }}
+            </div>
+
+            <div class="form-group mb-3">
+              {{ form.size.label(class="form-label") }}
+              {{ form.size(class="form-control") }}
+            </div>
+
+            <div class="form-group">
+              {{ form.rating.label(class="form-label") }}
+              <div class="btn-toolbar mb-3" role="toolbar">
+                <div class="btn-group mr-3" role="group">
+                  {% for i in range(1, 6) %}
+                  <button
+                    class="btn btn-secondary mr-3"
+                    type="button"
+                    id="rating"
+                    data-id="{{ i }}"
+                  >
+                    {{ i }}
+                  </button>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group mb-3">
+              {{ form.image.label(class="form-label") }}
+              {{ form.image(class="form-control") }}
+            </div>
+
+            <button type="submit" class="btn btn-primary mb-3">Add Cupcake</button>
+
+          </form>
+        </div>
+      {% endblock %}
+    </div>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/app.js"></script>
+</html>
